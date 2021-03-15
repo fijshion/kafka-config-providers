@@ -4,7 +4,7 @@
 
     <groupId>com.redhat.insights.kafka</groupId>
     <artifactId>config-providers</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
 
     <name>Insights Kafka Config Providers</name>
     <description>ConfigProvider implementations for Kafka</description>
@@ -27,7 +27,7 @@
         <connection>scm:git:git://github.com/RedHatInsights/kafka-config-providers.git</connection>
         <developerConnection>scm:git:git@github.com:RedHatInsights/kafka-config-providers.git</developerConnection>
         <url>https://github.com/RedHatInsights/kafka-config-providers</url>
-        <tag>0.1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
