@@ -1,7 +1,10 @@
 package com.redhat.insights.kafka.config.providers;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,21 +16,18 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.kafka.common.config.ConfigData;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 public class PlainFileConfigProviderTest {
 
     private PlainFileConfigProvider instance;
 
-    @Before
+    @BeforeEach
     public void init() {
         instance = new PlainFileConfigProvider();
         instance.configure(Collections.emptyMap());
     }
 
-    @After
+    @AfterEach
     public void close() throws IOException {
         instance.close();
     }
