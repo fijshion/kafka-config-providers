@@ -65,3 +65,25 @@ Then, reference the secret files in Kafka or Kafka Connect configuration:
     }
 }
 ```
+
+## EnvironmentConfigProvider
+
+This reads the value from an environment variable. Useful when using the [env option of externalConfiguration](https://strimzi.io/docs/operators/0.22.1/using.html#property-kafka-connect-external-env-reference).
+
+Add the following to the KafkaConnect custom resource's `spec.config`:
+
+
+```properties
+config.providers: env
+config.providers.file.class: com.redhat.insights.kafka.config.providers.EnvironmentConfigProvider
+```
+
+Then, reference the environment variables in a Kafka or Kafka Connect configuration:
+
+```json
+{
+    "config": {
+        "database.hostname": "${env:HBI_DB_HOSTNAME}"
+    }
+}
+```
