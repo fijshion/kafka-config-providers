@@ -41,7 +41,7 @@ public class EnvironmentConfigProvider implements ConfigProvider {
             if (value == null) {
                 throw new EnvironmentVariableMissingException("Environment variable " + key + " not found");
             }
-            return value;
+            return value.trim();
         })));
     }
 }
