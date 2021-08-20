@@ -34,6 +34,13 @@ public class EnvironmentConfigProviderTest {
     }
 
     @Test
+    @SetEnvironmentVariable(key = "DATABASE_HOSTNAME", value = "\na.test.db\n")
+    public void testReadingEnvVarWithNewline() {
+        final ConfigData result = instance.get("", Collections.singleton("DATABASE_HOSTNAME"));
+        assertEquals("a.test.db", result.data().get("DATABASE_HOSTNAME"));
+    }
+
+    @Test
     public void testExceptionWhenMissingEnvironmentVariable() {
         assertThrows(EnvironmentVariableMissingException.class, () -> instance.get("", Collections.singleton("key")));
     }
